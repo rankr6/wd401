@@ -13,4 +13,4 @@ FROM base as dev
 ENV NODE_ENV=development
 RUN npm install -g nodemon && npm install
 COPY . /app
-CMD npm run starts
+CMD npm run start

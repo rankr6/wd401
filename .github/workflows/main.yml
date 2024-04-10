@@ -20,9 +20,12 @@ jobs:
       - name: Build Docker image  
         run: docker-compose build  
 
-      - name: Run app & integration tests
+      - name: Start Docker container
         run: | 
           docker-compose up 
+          
+      - name: Run app & integration tests
+        run: | 
           docker-compose -f docker-compose.yml exec -T app npx sequelize-cli db:drop  
           docker-compose -f docker-compose.yml exec -T app npx sequelize-cli db:create  
           docker-compose -f docker-compose.yml exec -T app npx sequelize-cli db:migrate  
