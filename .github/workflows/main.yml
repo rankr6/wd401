@@ -22,7 +22,7 @@ jobs:
 
       - name: Start Docker container
         run: | 
-          docker-compose up 
+          docker-compose up -d 
           
       - name: Run app & integration tests
         run: | 
