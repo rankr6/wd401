@@ -30,6 +30,7 @@ jobs:
           docker-compose -f docker-compose.yml exec -T app npx sequelize-cli db:create  
           docker-compose -f docker-compose.yml exec -T app npx sequelize-cli db:migrate  
           docker-compose -f docker-compose.yml exec -T app npm run start &
+          npm test
           npm install cypress cypress-json-results
           npx cypress run --env STUDENT_SUBMISSION_URL="http://localhost:3000/"
       
